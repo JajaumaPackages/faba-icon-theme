@@ -1,6 +1,6 @@
 Name:           faba-icon-theme
 Version:        4.1.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Faba Icon theme
 
 License:        LGPL-3.0+ or CC-BY-SA-4.0
@@ -21,6 +21,7 @@ supplementary themes for Faba, require this base theme.
 
 %prep
 %setup -q
+find -L . -type l -print -delete
 chmod +x autogen.sh
 ./autogen.sh
 
@@ -56,5 +57,8 @@ gtk-update-icon-cache %{_datadir}/icons/Faba &>/dev/null || :
 
 
 %changelog
+* Tue Sep 27 2016 Jajauma's Packages <jajauma@yandex.ru> - 4.1.2-2
+- Remove dead links
+
 * Tue Sep 27 2016 Jajauma's Packages <jajauma@yandex.ru> - 4.1.2-1
 - Public release
